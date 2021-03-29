@@ -1,0 +1,425 @@
+{
+	"info": {
+		"_postman_id": "8a5cd263-4c6c-4ca5-8886-a1cebfc672a4",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Add Student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"students\": [\r\n        {\r\n            \"name\": \"Jai\",\r\n            \"department\": \"CS\",\r\n            \"section\" : \"A\"\r\n        },\r\n        {\r\n            \"name\": \"Sadam\",\r\n            \"department\": \"EE\",\r\n            \"section\" : \"B\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/admin/add_student",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"admin",
+								"add_student"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Course",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"courses\" : [\r\n    {\"name\" : \"AP\",\r\n     \"crd_hrs\" : 3,\r\n     \"status\" : \"offered\"\r\n    },\r\n    {\"name\" : \"ISL\",\r\n     \"crd_hrs\" : 3\r\n    }\r\n\r\n]}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/admin/add_courses",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"admin",
+								"add_courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Teacher",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"teachers\": [\r\n        {\r\n            \"name\": \"Rumman\",\r\n            \"department\": \"CS\",\r\n            \"specialization\": \"AI\",\r\n            \"experience\": 5\r\n        },\r\n        {\r\n            \"name\": \"Talha\",\r\n            \"department\": \"CS\",\r\n            \"specialization\": \"Web\",\r\n            \"experience\": 8\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/admin/add_teacher",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"admin",
+								"add_teacher"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Courses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/admin/courses",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"admin",
+								"courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/admin/logout",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"admin",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/admin/students",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"admin",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Results",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/admin/students",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"admin",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Teachers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/admin/teachers",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"admin",
+								"teachers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Confrimed Courses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/admin/confirmed_courses",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"admin",
+								"confirmed_courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Offer Course",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"offer\" : [\r\n        {\r\n            \"ID\" : 2\r\n        },\r\n        {\r\n            \"ID\" : 3\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/admin/offer_course",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"admin",
+								"offer_course"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign Course",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"assign\": [\r\n        {\r\n            \"course_id\": 1,\r\n            \"teacher_id\": 1\r\n        },\r\n        {\r\n            \"course_id\": 4,\r\n            \"teacher_id\": 2\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/admin/offer_course",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"admin",
+								"offer_course"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"admin\",\r\n    \"password\" : \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/admin/login",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"admin",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "Show Offered Courses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/student/offered_courses",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"student",
+								"offered_courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Availed Courses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/student/availed_courses?student_id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"student",
+								"availed_courses"
+							],
+							"query": [
+								{
+									"key": "student_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Avail Course",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"avail\": [\r\n        {\r\n            \"student_id\": 1,\r\n            \"course_id\": 1,\r\n            \"section\" : \"A\"\r\n        },\r\n        {\r\n            \"student_id\": 2,\r\n            \"course_id\": 1,\r\n            \"section\" : \"B\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/student/avail_course",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"student",
+								"avail_course"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Teacher",
+			"item": [
+				{
+					"name": "Show Assigned Courses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/student/offered_courses",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"student",
+								"offered_courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Marks",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"marks\": [\r\n        {\r\n            \"teacher_id\": 2,\r\n            \"student_id\": 1,\r\n            \"course_id\": 4,\r\n            \"marks\" : 75,\r\n            \"grade\" : \"A-\",\r\n            \"section\" : \"B\"\r\n        },\r\n        {\r\n            \"teacher_id\": 1,\r\n            \"student_id\": 2,\r\n            \"course_id\": 1,\r\n            \"marks\" : 70,\r\n            \"grade\" : \"B+\",\r\n            \"section\" : \"A\"\r\n        }\r\n\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/teacher/add_marks",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"teacher",
+								"add_marks"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
