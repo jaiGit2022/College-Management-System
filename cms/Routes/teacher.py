@@ -31,7 +31,7 @@ def add_marks():
                      obtained_by=val['student_id'], course=val['course_id'])
         try:
             db.session.add(obj)
-        except:
+        except Exception:
             return "Problem in adding marks"
     db.session.commit()
 

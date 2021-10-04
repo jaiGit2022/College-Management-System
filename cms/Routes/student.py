@@ -49,7 +49,7 @@ def avail_course():
 
     try:
         db.session.commit()
-    except:
+    except Exception:
         return "Problem in availing course"
 
     return "Courses availed successfully"

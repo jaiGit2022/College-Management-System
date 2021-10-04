@@ -13,7 +13,7 @@ from flask_login import login_user, current_user, logout_user
 from functools import wraps
 
 admin = Blueprint('admin', __name__)
-
+LOGIN_MSG = "Need Login"
 
 def toke_required(f):
     @wraps(f)
@@ -23,8 +23,8 @@ def toke_required(f):
         if not token:
             return jsonify({'message': 'Token is missing'})
         try:
-            data = jwt.decode(token, app.config['SECRET_KEY'])
-        except:
+            jwt.decode(token, app.config['SECRET_KEY'])
+        except Exception:
             return jsonify({'message': 'Token is invalid or expired'})
 
         return f(*args, **kwargs)
@@ -62,7 +62,7 @@ def logout():
 @admin.route('/admin/add_courses', methods=['POST'])
 def add_course():
     if not current_user.is_authenticated:
-        return "Need Login"
+        return LOGIN_MSG
 
     courses = request.get_json()['courses']
 
@@ -70,7 +70,7 @@ def add_course():
         data = Course(name=course['name'], crd_hrs=course['crd_hrs'], status=course.get('status', ''))
         try:
             db.session.add(data)
-        except:
+        except Exception:
             return "Problem in adding course"
     db.session.commit()
 
@@ -80,14 +80,14 @@ def add_course():
 @admin.route('/admin/add_student', methods=['POST'])
 def add_student():
     if not current_user.is_authenticated:
-        return "Need Login"
+        return LOGIN_MSG
     students = request.get_json()['students']
 
     for student in students:
         data = Student(name=student['name'], department=student['department'], section=student['section'])
         try:
             db.session.add(data)
-        except:
+        except Exception:
             return "Problem in adding student"
     db.session.commit()
 
@@ -97,7 +97,7 @@ def add_student():
 @admin.route('/admin/add_teacher', methods=['POST'])
 def add_teacher():
     if not current_user.is_authenticated:
-        return "Need Login"
+        return LOGIN_MSG
     teachers = request.get_json()['teachers']
 
     for teacher in teachers:
@@ -105,7 +105,7 @@ def add_teacher():
                        experience=teacher['experience'])
         try:
             db.session.add(data)
-        except:
+        except Exception:
             return "Problem in adding teacher"
     db.session.commit()
 
@@ -115,7 +115,7 @@ def add_teacher():
 @admin.route('/admin/courses')
 def courses():
     if not current_user.is_authenticated:
-        return "Need Login"
+        return LOGIN_MSG
     res = []
     courses_all = Course.query.all()
     for course in courses_all:
@@ -128,7 +128,7 @@ def courses():
 @admin.route('/admin/students')
 def students():
     if not current_user.is_authenticated:
-        return "Need Login"
+        return LOGIN_MSG
     res = []
     students_all = Student.query.all()
     for student in students_all:
@@ -140,7 +140,7 @@ def students():
 @admin.route('/admin/results')
 def results():
     if not current_user.is_authenticated:
-        return "Need Login"
+        return LOGIN_MSG
     res = []
     results = Result.query.all()
     for result in results:
@@ -153,7 +153,7 @@ def results():
 @admin.route('/admin/teachers')
 def teachers():
     if not current_user.is_authenticated:
-        return "Need Login"
+        return LOGIN_MSG
     res = []
     teachers_all = Teacher.query.all()
     for teacher in teachers_all:
@@ -165,7 +165,7 @@ def teachers():
 @admin.route('/admin/confirmed_courses')
 def confirmed_courses():
     if not current_user.is_authenticated:
-        return "Need Login"
+        return LOGIN_MSG
     res = []
     courses = Course.query.filter(Course.status == "confirmed")
     for course in courses:
@@ -178,7 +178,7 @@ def confirmed_courses():
 @admin.route('/admin/offer_course', methods=["POST"])
 def offer_course():
     if not current_user.is_authenticated:
-        return "Need Login"
+        return LOGIN_MSG
     offer = request.get_json()['offer']
     for obj in offer:
         course = Course.query.get(obj['ID'])
@@ -186,7 +186,7 @@ def offer_course():
 
     try:
         db.session.commit()
-    except:
+    except Exception:
         return "Problem in offering course"
 
     return "Courses offered successfully"
@@ -195,7 +195,7 @@ def offer_course():
 @admin.route('/admin/assign_course', methods=["POST"])
 def assign_course():
     if not current_user.is_authenticated:
-        return "Need Login"
+        return LOGIN_MSG
     assign = request.get_json()['assign']
     for obj in assign:
         course = Course.query.get(obj['course_id'])
@@ -203,7 +203,7 @@ def assign_course():
 
     try:
         db.session.commit()
-    except:
+    except Exception:
         return "Problem in assign course"
 
     return "Courses assigned successfully"
